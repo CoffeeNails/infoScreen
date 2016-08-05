@@ -1,5 +1,0 @@
- 
-app_id = "149652248780702"
-app_secret = "d27bcb3ebc2b0a6c0215467742c88bd2"
-
-userhash=9278df5c9c3b57ed68c68fea50730cb1c185b448a3cb
