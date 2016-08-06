@@ -1,1 +1,1 @@
-# infoScreen for Aaltoes
+# Infoscreen for Aaltoes
