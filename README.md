@@ -1,1 +1,1 @@
-# Infoscreen for Aaltoes
+# Infoscreen for Aalto Entrepreneurship society
