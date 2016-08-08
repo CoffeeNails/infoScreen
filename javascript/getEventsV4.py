@@ -3,9 +3,10 @@ import json
 import operator
 import time
 import sys
+import configparser
+
 pages = ["aaltoes","sosaaltoes"] #add pages where to look for events
-app_id = "XXX"
-app_secret = "XXX"
+
 
 def loadEvents(page):
 	
@@ -68,6 +69,14 @@ def getCovers(events):
 	return events
 
 if __name__ == "__main__":
+	
+	token = configparser.ConfigParser()
+	token.read("facetoken.conf")
+	global app_id 
+	global app_secret
+	app_id= token.get("FACEBOOK","app_id")
+	app_secret = token.get("FACEBOOK", "app_secret")  
+
 	results = []
 
 	for i in pages:
