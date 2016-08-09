@@ -56,9 +56,9 @@ $(document).ready(function() {
                     else {
                         Events(data);
                     }
-                    setTimeout(function () {
-                        showEvents()
-                    }, 5000);
                 });
             }
+        setInterval(function () {
+                showEvents()
+            }, 5000);
 });
