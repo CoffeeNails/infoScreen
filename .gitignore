@@ -1,2 +1,6 @@
 infoScreenTokens.txt
 /javascript/facetoken.conf
+*.aux
+*.log
+*.out
+

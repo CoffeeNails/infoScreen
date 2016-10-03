@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\setlength{\parskip}{1em}
+
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+
+\fancyhf{}
+
+
+\usepackage{graphicx}
+\usepackage{color}
+\sloppy
+\definecolor{lightgray}{gray}{0.5}
+\setlength{\parindent}{0pt}
+\graphicspath{ {images/} }
+
+\usepackage{amsfonts,amssymb,amsbsy}
+\usepackage{hyperref}
+\hypersetup{pdfpagemode=UseNone, pdfstartview=FitH,
+  colorlinks=true,urlcolor=red,linkcolor=blue,citecolor=black,
+  pdftitle={Default Title, Modify},pdfauthor={Your Name},
+  pdfkeywords={Modify keywords}}
+
+\title{Infoscreen RaspberryPi documentation}
+\author{Tuukka Rouhiainen \& Sauli Sjögren}
+
+\usepackage{cite}
+
+\begin{document}
+
+\date{2.10.2016}
+\maketitle
+\thispagestyle{fancy}
+
+\section{Description}
+This is short documentation of RaspberryPi`s settings and installed packages for Infoscreen which is running in Startup Sauna.
+\section{IP addresses}
+Left: 10.100.15.164 \\
+Right: 10.100.24.144
+\section{Installed packages}
+\begin{verbatim}
+cec-utils
+\end{verbatim}
+This package is to control CEC (Consumer Electronic Control) supported TV via RaspberryPi.
+\begin{verbatim}
+unclutter
+\end{verbatim}
+Used to remove mouse cursor.
+\section{Config files}
+\subsection{Crontab}
+\begin{verbatim}
+0 2 * * * /home/pi/toggleMonitor.sh off >/dev/null 2>&1
+0 6 * * * /home/pi/toggleMonitor.sh on >/dev/null 2>&1
+
+8 /6 * * * sudo rm -r ~/.cache/mozilla/firefox/*.default/* >/dev/null 2>&1
+10 /6 * * * /home/pi/public_html/BusScreen/javascript/getEventsV4.py >/dev/null 2>&1
+13 /6 * * * mv /home/pi/events.json /home/pi/public_html/BusScreen/javascript/events.json >/dev/null 2>&1
+\end{verbatim}
+\subsection{Autostart}
+In NOOBS autostart file is located at $\sim~/.config/lxsession/LXDE-pi$
+\begin{verbatim}
+@xscreensaver -no-splash
+@xset s off
+@xset -dpms
+@sudo xset s noblank
+@unclutter
+@/home/pi/fullscreen.sh
+\end{verbatim}
+\subsection{Fullscreen script}
+\begin{verbatim}
+sudo rm -r ~/.cache/mozilla/firefox/*.default/*
+iceweasel localhost/~pi/BusScreen/index.html --display=:0 &
+sleep 10;
+xte  "key F11" -x:0
+\end{verbatim}
+\subsection{Script to toggle TV on/off}
+\begin{verbatim}
+#!/bin/bash -e
+
+CMD="$1"
+
+function main {
+    if [ "$CMD" == "on" ]; then
+	echo "on 0" | cec-client -s 
+    elif [ "$CMD" == "off" ]; then
+	echo "standby 0" | cec-client -s
+    fi
+    exit 0
+}
+
+main
+\end{verbatim}
+\end{document}
+

@@ -1,0 +1,7 @@
+0 2 * * * /home/pi/toggleMonitor.sh off >/dev/null 2>&1
+0 6 * * * /home/pi/toggleMonitor.sh on >/dev/null 2>&1
+
+8 /6 * * * sudo rm -r ~/.cache/mozilla/firefox/*.default/* >/dev/null 2>&1
+10 /6 * * * /home/pi/public_html/BusScreen/javascript/getEventsV4.py >/dev/null 2>&1
+13 /6 * * * mv /home/pi/events.json /home/pi/public_html/BusScreen/javascript/events.json >/dev/null 2>&1
+
