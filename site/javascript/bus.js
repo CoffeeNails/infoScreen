@@ -13,10 +13,10 @@ $(document).ready(function () {
             return i;
         }
         if (date.getSeconds() == "0") {
-          $.getJSON("http://api.reittiopas.fi/hsl/beta/?request=stop&userhash=&format=json&code=e2215", function (data) {
+          $.getJSON("http://api.reittiopas.fi/hsl/prod/?request=stop&userhash=5cc56ab515a8128adff3f689e45283097fda5c2386ce&format=json&code=e2215", function (data) {
               print_schedule(data);
           });
-          $.getJSON("http://api.reittiopas.fi/hsl/beta/?request=stop&userhash=&format=json&code=e2229", function (data) {
+          $.getJSON("http://api.reittiopas.fi/hsl/prod/?request=stop&userhash=5cc56ab515a8128adff3f689e45283097fda5c2386ce&format=json&code=e2229", function (data) {
               print_schedule2(data);
           });
         }

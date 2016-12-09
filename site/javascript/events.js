@@ -43,7 +43,7 @@ $(document).ready(function() {
         }
         function showEvents() {
                 // downloads events from the .json file on server
-                $.getJSON("BusScreen/javascript/events.json", function (data) {
+                $.getJSON("javascript/events.json", function (data) {
                     if (data.data[0] == null) {
                         $(".picturehandler img").remove();
                         $(".eventLocation h2").remove();
