@@ -35,6 +35,7 @@ $(document).ready(function() {
             $(".picturehandler").prepend("<img src=" + data.data[k].id + ">");
             $(".eventTitle").append("<h3>" + data.data[k].name + "</h3>");
             $(".eventLocation").append("<h2>" + " @ " + " " + data.data[k].place.name + "</h2>");
+            $("#coming_events").html("Upcoming events");
 
             $(".time").append(parse_time(data.data[k].start_time));
             $(".date").append(parse_date(data.data[k].start_time))
@@ -45,13 +46,15 @@ $(document).ready(function() {
                 // downloads events from the .json file on server
                 $.getJSON("javascript/events.json", function (data) {
                     if (data.data[0] == null) {
+                        $(".eventscript img").remove();
                         $(".picturehandler img").remove();
                         $(".eventLocation h2").remove();
                         $(".eventTitle h3").remove();
                         $(".eventMetaPostedOnDate h2").remove();
                         $(".time").empty();
                         $(".date").empty();
-                        $(".eventTitle").append("<h3 id='no_events'>" + "No events" + "</h3>");
+                        $("#coming_events").html("");
+                        $(".eventscript").append("<img id='aaltoeslogo' src='pics/aaltoes_logo.png' alt = 'Smiley face' height='274' width='900'>");
                     }
                     else {
                         Events(data);

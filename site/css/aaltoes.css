@@ -30,7 +30,7 @@ h1 {
     border-bottom: none;
    text-shadow: /*0 -1px 0 #fff, */
     0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 5px 0 #242424, 0 5px 0 #222, 0 4px 0 #202020, 0 10px 21px rgba(0, 0, 0, 0.9);
-padding-bottom:5px;
+padding-bottom:2px;
 }
 
 #coming_events {
@@ -108,13 +108,14 @@ body {
     background-attachment: fixed;
     margin: 0 0 20px;
     /*background: #333;*/
+    overflow:hidden;
 }
 
 .busschedule {
     display: inline-block;
     margin: auto;
     float: left;
-    margin-top: 1%;
+    margin-top: 0%;
     width: 49.7%;
     padding: 1px;
 }
@@ -124,7 +125,7 @@ body {
     margin: auto;
     float: right;
     width: 49.7%;
-    margin-top: 1%;
+    margin-top: 0%;
     padding: 1px;
 }
 
@@ -193,6 +194,7 @@ td {
 }
 
 .eventTitle h3 {
+    margin-top:0.8em;
     /*font-family: "Arial";*/
     font-family: 'Open Sans', sans-serif;
     /* font-family: 'Helvetica Neue', sans-serif;*/
@@ -274,7 +276,7 @@ td {
 
 
 .eventscript {
-    /* Styles the events area. A wrapper */  top:-30px;
+    /* Styles the events area. A wrapper */  top:-2.5em;
     position: relative;
     padding-left: 5px;
     padding-right: 5px;
@@ -284,10 +286,18 @@ td {
 }
 
 #no_events {
+    display:inline-block;
+    text-align:center;
     font-size:60px;
     font-weight:500;
-    float:right;
-    margin-right:3%;
     padding-top:5%;
+    float:right;
     
+}
+#aaltoeslogo {
+    margin-top:-6em;
+    display: block;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
 }
