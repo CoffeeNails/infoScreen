@@ -29,24 +29,23 @@
 
 \begin{document}
 
-\date{2.10.2016}
+\date{13.12.2016}
 \maketitle
 \thispagestyle{fancy}
 
 \section{Description}
 This is short documentation of RaspberryPi`s settings and installed packages for Infoscreen which is running in Startup Sauna.
 \section{IP addresses}
-Left: 10.100.15.164 \\
-Right: 10.100.24.144
+Left: \textbf{10.100.10.224} \\
+Right: \textbf{10.100.24.144}
 \section{Installed packages}
-\begin{verbatim}
-cec-utils
-\end{verbatim}
-This package is to control CEC (Consumer Electronic Control) supported TV via RaspberryPi.
-\begin{verbatim}
-unclutter
-\end{verbatim}
-Used to remove mouse cursor.
+\textbf{cec-utils} - This package is to control CEC (Consumer Electronic Control) supported TV via RaspberryPi.
+
+\textbf{unclutter} - Used to remove mouse cursor.
+
+\textbf{xautomation}
+
+\textbf{iceweasel}
 \section{Config files}
 \subsection{Crontab}
 \begin{verbatim}
@@ -58,7 +57,8 @@ Used to remove mouse cursor.
 13 /6 * * * mv /home/pi/events.json /home/pi/public_html/BusScreen/javascript/events.json >/dev/null 2>&1
 \end{verbatim}
 \subsection{Autostart}
-In NOOBS autostart file is located at $\sim~/.config/lxsession/LXDE-pi$
+In NOOBS autostart file is located at $\sim/.config/lxsession/LXDE-pi$ \\
+In Rasbian Pixel file is located at $\sim/.config/lxsession/LXDE/autostart$
 \begin{verbatim}
 @xscreensaver -no-splash
 @xset s off
