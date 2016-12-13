@@ -1,5 +1,5 @@
 infoScreenTokens.txt
-/site/javascript/facetoken.conf
+site/javascript/facetoken.conf
 *.aux
 *.log
 *.out
