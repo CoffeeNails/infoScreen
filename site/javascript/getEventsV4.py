@@ -5,7 +5,7 @@ import time
 import sys
 import configparser
 
-pages = ["aaltoes","sosaaltoes"] #add pages where to look for events
+pages = ["aaltoes","sosaaltoes", "startupsauna"] #add pages where to look for events
 
 
 def loadEvents(page):
