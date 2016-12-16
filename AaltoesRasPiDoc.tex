@@ -50,6 +50,7 @@ Right: \textbf{10.100.51.44}
 \textbf{iceweasel}
 \section{Config files}
 \subsection{Crontab}
+To edit crontab, write \textbf{crontab -e}.
 \begin{verbatim}
 0 2 * * * /home/pi/toggleMonitor.sh off >/dev/null 2>&1
 0 6 * * * /home/pi/toggleMonitor.sh on >/dev/null 2>&1
@@ -93,5 +94,15 @@ function main {
 
 main
 \end{verbatim}
+\section{Facebook events}
+Python script requires tokens given file facetoken.conf. Format is:
+\begin{verbatim}
+[FACEBOOK]
+app_id:XXX
+app_secret:XXX
+\end{verbatim}
+Current fetched Facebook events are from: \rextbf{aaltoes, sosaaltoes, startupsauna}
+You can change them in getEventsV4.py
+
 \end{document}
 

@@ -26,7 +26,7 @@
 0 6 * * * /home/pi/infoScreen/scripts/toggleMonitor.sh on </dev/null 2>&1
 
 #Script to make sure that newest events are shown
-0 1 * * * sudo kill $(pgrep iceweasel)
-2 1 * * * python /home/pi/infoScreen/site/javascript/getEventsV4.py >/dev/null 2>&1
-4 1 * * * mv /home/pi/events.json /home/pi/infoScreen/site/javascript/events.json >/dev/null 2>&1
-5 1 * * * /home/pi/infoScreen/scripts/fullscreen.sh
+0 3 * * * sudo kill $(pgrep iceweasel)
+2 3 * * * python /home/pi/infoScreen/site/javascript/getEventsV4.py >/dev/null 2>&1
+4 3 * * * mv /home/pi/events.json /home/pi/infoScreen/site/javascript/events.json >/dev/null 2>&1
+5 3 * * * /home/pi/infoScreen/scripts/fullscreen.sh
