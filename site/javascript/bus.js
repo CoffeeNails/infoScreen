@@ -121,13 +121,13 @@ $(document).ready(function () {
     }
 
     function cleanBusNumber(line) {
-        // function styles the line number to a normal bus line number
-        var newLine = line.split(" ")[0];
-        newLine = newLine.replace(2, "");
-        if (newLine[0] === "0") {
-            newLine = newLine.replace(0, "");
-        }
-        return newLine;
+        // styles the line number to a normal bus line number
+	line = line.split(" ")[0]
+	line = line.slice(1);
+	if (line[0] === "0") {
+		line = line.replace(0, "");
+	}
+	return line
     }
 
  
