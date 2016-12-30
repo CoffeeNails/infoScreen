@@ -6,7 +6,7 @@
 \usepackage{amsmath}
 
 \fancyhf{}
-
+\usepackage{listings}
 
 \usepackage{graphicx}
 \usepackage{color}
@@ -38,8 +38,8 @@ This is short documentation of RaspberryPi`s settings and installed packages for
 \section{IP addresses}
 These IP's aren't static so they doesn't necessarily hold.
 
-Left: \textbf{10.100.45.65} \\
-Right: \textbf{10.100.51.44}
+Left: \textbf{10.100.14.75} \\
+Right: \textbf{10.100.28.220}
 \section{Installed packages}
 \textbf{cec-utils} - This package is to control CEC (Consumer Electronic Control) supported TV via RaspberryPi.
 
@@ -51,49 +51,19 @@ Right: \textbf{10.100.51.44}
 \section{Config files}
 \subsection{Crontab}
 To edit crontab, write \textbf{crontab -e}.
-\begin{verbatim}
-0 2 * * * /home/pi/toggleMonitor.sh off >/dev/null 2>&1
-0 6 * * * /home/pi/toggleMonitor.sh on >/dev/null 2>&1
 
-8 /6 * * * sudo rm -r ~/.cache/mozilla/firefox/*.default/* >/dev/null 2>&1
-10 /6 * * * /home/pi/public_html/BusScreen/javascript/getEventsV4.py >/dev/null 2>&1
-13 /6 * * * mv /home/pi/events.json /home/pi/public_html/BusScreen/javascript/events.json >/dev/null 2>&1
-\end{verbatim}
+\lstinputlisting[language=bash,firstline=24]{scripts/crontab}
+
 \subsection{Autostart}
 In NOOBS autostart file is located at $\sim/.config/lxsession/LXDE-pi$ \\
 In Rasbian Pixel file is located at $\sim/.config/lxsession/LXDE/autostart$
-\begin{verbatim}
-@xscreensaver -no-splash
-@xset s off
-@xset -dpms
-@sudo xset s noblank
-@unclutter
-@/home/pi/fullscreen.sh
-\end{verbatim}
+
+\lstinputlisting[language=bash]{scripts/autostart}
+
 \subsection{Fullscreen script}
-\begin{verbatim}
-sudo rm -r ~/.cache/mozilla/firefox/*.default/*
-iceweasel localhost/~pi/BusScreen/index.html --display=:0 &
-sleep 10;
-xte  "key F11" -x:0
-\end{verbatim}
+\lstinputlisting[language=bash]{scripts/fullscreen.sh}
 \subsection{Script to toggle TV on/off}
-\begin{verbatim}
-#!/bin/bash -e
-
-CMD="$1"
-
-function main {
-    if [ "$CMD" == "on" ]; then
-	echo "on 0" | cec-client -s 
-    elif [ "$CMD" == "off" ]; then
-	echo "standby 0" | cec-client -s
-    fi
-    exit 0
-}
-
-main
-\end{verbatim}
+\lstinputlisting[language=bash]{scripts/toggleMonitor.sh}
 \section{Facebook events}
 Python script requires tokens given file facetoken.conf. Format is:
 \begin{verbatim}
