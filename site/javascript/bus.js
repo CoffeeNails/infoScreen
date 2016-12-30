@@ -1,27 +1,22 @@
 // Created by Tuukka Rouhiainen and Sauli Sjögren
 $(document).ready(function () {
 
-    function getTimeDate() {
-        // Show current time and date. Clock on the screen
-        var date = new Date();
-        $('.hour').html(addZero(date.getHours()) + ":");
-        $('.min').html(addZero(date.getMinutes()) + ":");
-        $('.second').html(addZero(date.getSeconds()));
-
-        function addZero(i) {
-            if (i < 10)(i = "0" + i);
-            return i;
-        }
-        if (date.getSeconds() == "0") {
-          $.getJSON("http://api.reittiopas.fi/hsl/prod/?request=stop&userhash=5cc56ab515a8128adff3f689e45283097fda5c2386ce&format=json&code=e2204", function (data) {
-              print_schedule(data);
-          });
-          $.getJSON("http://api.reittiopas.fi/hsl/prod/?request=stop&userhash=5cc56ab515a8128adff3f689e45283097fda5c2386ce&format=json&code=e2225", function (data) {
-              print_schedule2(data);
-          });
-        }
-    }
-    window.setInterval(getTimeDate, 1000);
+	function schedules() {
+		var date = new Date();
+       		function addZero(i) {
+            		if (i < 10)(i = "0" + i);
+            		return i;
+        	}
+        	if (date.getSeconds() == "0") {
+          		$.getJSON("http://api.reittiopas.fi/hsl/prod/?request=stop&userhash=5cc56ab515a8128adff3f689e45283097fda5c2386ce&format=json&code=e2204", function (data) {
+	  		print_schedule(data);
+          		});
+          		$.getJSON("http://api.reittiopas.fi/hsl/prod/?request=stop&userhash=5cc56ab515a8128adff3f689e45283097fda5c2386ce&format=json&code=e2225", function (data) {
+              		print_schedule2(data);
+          		});
+        	}
+    	}
+    window.setInterval(schedules, 1000);
 
 
 // Creates table where schedules are shown
